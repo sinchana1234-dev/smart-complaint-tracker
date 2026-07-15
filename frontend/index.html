@@ -870,6 +870,7 @@
   }
 </style>
 </head>
+
 <body>
 <!-- Notification Box -->
 <div id="notification" class="notification">
@@ -1036,7 +1037,7 @@
     </div>
   </div>
 </footer>
-
+  <script src="config.js"></script>
 <script>
   // ========== BASIC NOTIFICATION SYSTEM ==========
   function showNotification(message, type) {
@@ -1888,7 +1889,7 @@
     showNotification('Submitting complaint...', 'info');
 
     try {
-      const response = await fetch('http://localhost:5000/submit-complaint', {
+      const response = await fetch(`${BACKEND_URL}/submit-complaint`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({complaint_text: complaintText})
